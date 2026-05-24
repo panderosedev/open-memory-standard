@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://panderose.com/schemas/v1/context-paste.schema.json",
+  "title": "ContextPasteArray",
+  "type": "object",
+  "required": ["provider", "version", "extracted_at", "data"],
+  "properties": {
+    "provider": { "type": "string", "enum": ["anthropic", "custom"] },
+    "version": { "type": "string" },
+    "extracted_at": { "type": "string", "format": "date-time" },
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["content"],
+        "properties": {
+          "content": { "type": "string" }
+        }
+      }
+    }
+  }
+}
