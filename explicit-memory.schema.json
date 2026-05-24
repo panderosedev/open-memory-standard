@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://panderose.com/schemas/v1/explicit-memory.schema.json",
+  "title": "ExplicitMemoryArray",
+  "type": "object",
+  "required": ["provider", "version", "extracted_at", "memories"],
+  "properties": {
+    "provider": { "type": "string", "enum": ["openai", "custom"] },
+    "version": { "type": "string" },
+    "extracted_at": { "type": "string", "format": "date-time" },
+    "memories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["memory"],
+        "properties": {
+          "memory": { "type": "string" }
+        }
+      }
+    }
+  }
+}
